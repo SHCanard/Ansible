@@ -1,0 +1,11 @@
+---
+
+- name: List all interfaces (PS)
+  win_shell: "(Get-NetAdapter | Where-Object { $_.Status -eq \"Up\" }).ifIndex"
+  register: ps_interfaces
+  when: ansible_distribution_major_version|int >= 6
+
+- name: Display interfaces (PS)
+  debug:
+    msg: "{{ ps_interfaces.stdout_lines }}"
+  when: ps_interfaces is defined
