@@ -1,0 +1,8 @@
+- name: Modification DNS Windows
+  hosts: "{{ variable_host | default('all') }}"
+  user: winadm
+
+  roles:
+    - list_interfaces
+    - modify_interfaces
+    - check_modifications
