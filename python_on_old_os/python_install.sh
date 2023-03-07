@@ -20,4 +20,4 @@ make && make install
 
 #Cleanup
 rm -Rf /opt/python2.7/Python-2.7
-rm /opt/python2.7/Python-2.7.tgz
+rm -f /opt/python2.7/Python-2.7.tgz
