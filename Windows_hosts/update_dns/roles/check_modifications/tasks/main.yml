@@ -1,0 +1,17 @@
+---
+
+- name: Check DNS (PS)
+  win_shell: "nslookup proxy.domain.com"
+  register: ps_nslookup
+  when: ansible_distribution_major_version|int >= 6
+  
+- name: Display check DNS (PS)
+  debug:
+    msg: "{{ ps_nslookup.stdout_lines }}"
+
+- fail:
+    msg: "{{ ps_nslookup.stdout_lines }}"
+  when:
+  - ps_nslookup is defined
+  - '"1.1.1.1" not in ps_nslookup.stdout'
+  - '"1.1.1.2" not in ps_nslookup.stdout'
