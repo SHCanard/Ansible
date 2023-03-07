@@ -1,0 +1,7 @@
+[GROUP1]
+SRV10.domain.com
+SRV11.domain.com
+SRV12.domain.com
+
+[GROUP2]
+SRV20.domain.com
